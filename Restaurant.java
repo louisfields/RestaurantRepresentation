@@ -2,6 +2,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Whilst being bored and trying to study for my CS335 final, I drafted up a simple little restaurant reprez 
+ * I am a little to proud of.
+ *
+ * @author Luis Manuel Campos
+ */
+
 public class Restaurant {
 
 	private String name;
