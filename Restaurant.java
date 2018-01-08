@@ -4,7 +4,7 @@ import java.util.Set;
 
 /**
  * Whilst being bored and trying to study for my CS335 final, I drafted up a simple little restaurant reprez 
- * I am a little to proud of.
+ * that I am a little too proud of.
  *
  * @author Luis Manuel Campos
  */
