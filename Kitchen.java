@@ -34,8 +34,7 @@ public class Kitchen {
 			System.out.println("We did not get an order.");
 			return null;
 		}
-		
-		
+
 	}
 	
 	public void cook() {

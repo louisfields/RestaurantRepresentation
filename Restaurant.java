@@ -17,9 +17,11 @@ public class Restaurant {
 	
 	private int rating;
 	
+	Kitchen kitchen;
+	
 	private boolean isBusySeason;
 	
-	Kitchen kitchen;
+	
 	
 	public Restaurant(String name, EnumType type, int rating, Kitchen kitchen) {
 		this.name = name;
@@ -48,6 +50,10 @@ public class Restaurant {
 		return this.rating;
 	}
 	
+	public void setRating(int rating) {
+		this.rating =  rating;
+	}
+	
 	public Kitchen getKitchen() {
 		return this.kitchen;
 	}
@@ -63,21 +69,25 @@ public class Restaurant {
 	public static void main(String [] args) {
 		Map<Integer, Dish> todaysOrders = new HashMap<Integer, Dish>();
 		Kitchen peruvian = new Kitchen("Peruvian", EnumType.Peruvian);
-		Restaurant best = new Restaurant("Inca's Peruvian Cuisine", EnumType.Peruvian, 5, peruvian);
-		best.setBusySeason(true); //It's winter season, snowbirds are here.
+		Restaurant incasPeruvianCuisine = new Restaurant("Inca's Peruvian Cuisine", EnumType.Peruvian, 5, peruvian);
+		incasPeruvianCuisine.setBusySeason(true); //It's winter season, snowbirds are here.
 		//Lets take some orders
 		todaysOrders.put(1, new Dish("Lomo Saltado"));
 		todaysOrders.put(2,  new Dish("Aji de Gallina"));
 		todaysOrders.put(3, new Dish("Ceviche Mixto"));
-		best.kitchen.dishesToMake = todaysOrders;
+		incasPeruvianCuisine.kitchen.dishesToMake = todaysOrders;
 		//The kitchen now knows todays orders, lets test it.
-		Set<Integer> orderNumbers = best.kitchen.dishesToMake.keySet();
-		System.out.println("Dishes to make today: ");
+		Set<Integer> orderNumbers = incasPeruvianCuisine.kitchen.dishesToMake.keySet();
+		
+		System.out.println("Dishes to make today: \n");
+		
 		for(Integer index :  orderNumbers) {
-			System.out.println(index + ". " + best.kitchen.dishesToMake.get(index).getName());
-			best.kitchen.make(index);
-			System.out.print("\n---> "); best.kitchen.ding(); System.out.println();;
+			Dish currentDish = incasPeruvianCuisine.kitchen.dishesToMake.get(index);
+			System.out.println(index + ". " + currentDish.getName());
+			incasPeruvianCuisine.kitchen.make(index);
+			System.out.println(); incasPeruvianCuisine.kitchen.ding(); System.out.println("\n---> Llevate tu " + currentDish.getName()); System.out.println();
 		}
+		
 		
 		
 		
