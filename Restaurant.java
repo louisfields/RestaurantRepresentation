@@ -1,6 +1,11 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 /**
  * Whilst being bored and trying to study for my CS335 final, I drafted up a simple little restaurant reprez 
@@ -20,7 +25,6 @@ public class Restaurant {
 	Kitchen kitchen;
 	
 	private boolean isBusySeason;
-	
 	
 	
 	public Restaurant(String name, EnumType type, int rating, Kitchen kitchen) {
@@ -62,38 +66,15 @@ public class Restaurant {
 		this.isBusySeason = maybeBusy;
 	}
 	
-	public boolean isBusy() {
+	public boolean isBusySeason(String date) {
+		
+		//Given the date as a string, determine first if it is close to a holiday
+		
 		return this.isBusySeason;
 	}
 	
-	public static void main(String [] args) {
-		Map<Integer, Dish> todaysOrders = new HashMap<Integer, Dish>();
-		Kitchen peruvian = new Kitchen("Peruvian", EnumType.Peruvian);
-		Restaurant incasPeruvianCuisine = new Restaurant("Inca's Peruvian Cuisine", EnumType.Peruvian, 5, peruvian);
-		incasPeruvianCuisine.setBusySeason(true); //It's winter season, snowbirds are here.
-		//Lets take some orders
-		todaysOrders.put(1, new Dish("Lomo Saltado"));
-		todaysOrders.put(2,  new Dish("Aji de Gallina"));
-		todaysOrders.put(3, new Dish("Ceviche Mixto"));
-		incasPeruvianCuisine.kitchen.dishesToMake = todaysOrders;
-		//The kitchen now knows todays orders, lets test it.
-		Set<Integer> orderNumbers = incasPeruvianCuisine.kitchen.dishesToMake.keySet();
-		
-		System.out.println("Dishes to make today: \n");
-		
-		for(Integer index :  orderNumbers) {
-			Dish currentDish = incasPeruvianCuisine.kitchen.dishesToMake.get(index);
-			System.out.println(index + ". " + currentDish.getName());
-			incasPeruvianCuisine.kitchen.make(index);
-			System.out.println(); incasPeruvianCuisine.kitchen.ding(); System.out.println("\n---> Llevate tu " + currentDish.getName()); System.out.println();
-		}
-		
-		
-		
-		
-		
-		
+	public void setResturantName(String s) {
+		this.name = s;
 	}
-	
-	
+
 }
