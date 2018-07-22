@@ -7,17 +7,26 @@ public class Kitchen {
 	
 	private EnumType type;
 	
-	public Map<Integer, Dish> dishesToMake = new HashMap<Integer, Dish>();
+	private Map<Integer, Dish> dishesToMake;
 	
 	
 	public Kitchen(String name, EnumType type) {
 		//Add a dish to the list of dishes this kitchen has to make.
 		this.name = name;
 		this.type =  type;
+		dishesToMake = new HashMap<Integer, Dish>();
+	}
+	
+	public void setDishesToMake(Map<Integer, Dish> dishesToMake) {
+		this.dishesToMake = dishesToMake;
 	}
 	
 	public void queueUpOrder(int orderNumber, Dish d) {
 		this.dishesToMake.put(orderNumber, d);
+	}
+	
+	public Map<Integer, Dish> getKitchenOrders(){
+		return this.dishesToMake;
 	}
 	
 	public Dish make(int orderNumber) {

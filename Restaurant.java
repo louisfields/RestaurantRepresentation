@@ -22,7 +22,7 @@ public class Restaurant {
 	
 	private int rating;
 	
-	Kitchen kitchen;
+	private Kitchen kitchen;
 	
 	private boolean isBusySeason;
 	
@@ -35,6 +35,7 @@ public class Restaurant {
 		this.isBusySeason = false;
 				
 	}
+	
 	
 	public Dish orderDish(int orderNumber) {
 		Dish dish =  kitchen.make(orderNumber);
