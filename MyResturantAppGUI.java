@@ -5,9 +5,15 @@ import java.util.Scanner;
 import java.util.Set;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class MyResturantAppGUI {
+public class MyResturantAppGUI extends Application {
+	
+	/*
+	 * Back-end declarables
+	 */
 
 	private static Restaurant restaurant;
 
@@ -20,7 +26,20 @@ public class MyResturantAppGUI {
 	private static Kitchen kitchen_of_resturant;
 
 	private static Scanner s;
-
+	
+	/*
+	 * GUI Application types
+	 * 
+	 */
+	
+	private BorderPane window;
+	private static final int width = 254;
+	private static final int height = 360;
+	
+/*
+ * Back-end methods
+ */
+	
 	/*
 	 * This method was taken from Stack overflow
 	 * 
@@ -105,6 +124,32 @@ public class MyResturantAppGUI {
 		}
 	}
 
+/*
+* GUI Methods
+*/
+
+	public void setUpGUI(Stage s) {
+		window = new BorderPane();
+		Scene scene = new Scene(window, width, height);
+		s.setScene(scene);
+		s.show();
+		
+	}
+	
+	@Override
+	public void start(Stage stage) throws Exception {
+		// TODO Auto-generated method stub
+		 stage.setTitle("Welcome to " + resturantName);
+		 setUpGUI(stage);
+		   
+
+	}
+	
+/*
+ * MAIN
+ */
+	
+	
 	public static void main(String[] args) {
 		// A Scanner object to scan for input
 		s = new Scanner(System.in);
@@ -115,15 +160,8 @@ public class MyResturantAppGUI {
 		order_dishes(todaysOrders);
 		// Make the dishes
 		make_dishes();
-		// launch(args);
+	    launch(args);
 		s.close();
 
 	}
-
-//	@Override
-//	public void start(Stage stage) throws Exception {
-//		// TODO Auto-generated method stub
-//		// stage.setTitle("Welcome to " + );
-//
-//	}
 }
