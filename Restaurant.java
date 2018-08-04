@@ -18,6 +18,8 @@ public class Restaurant {
 
 	private String name;
 	
+	private String address;
+	
 	private EnumType type;
 	
 	private int rating;
@@ -27,12 +29,13 @@ public class Restaurant {
 	private boolean isBusySeason;
 	
 	
-	public Restaurant(String name, EnumType type, int rating, Kitchen kitchen) {
+	public Restaurant(String name, EnumType type, int rating, Kitchen kitchen, String address) {
 		this.name = name;
 		this.type = type;
 		this.rating = rating;
 		this.kitchen = kitchen;
 		this.isBusySeason = false;
+		this.address = address;
 				
 	}
 	
@@ -76,6 +79,12 @@ public class Restaurant {
 	
 	public void setResturantName(String s) {
 		this.name = s;
+	}
+
+
+	public String getAddress() {
+		// TODO Auto-generated method stub
+		return this.address;
 	}
 
 }
