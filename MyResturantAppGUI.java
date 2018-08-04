@@ -48,7 +48,7 @@ public class MyResturantAppGUI extends Application {
 	
 	private BorderPane window;
 	
-	private static final int width = 254;
+	private static final int width = 300;
 	
 	private static final int height = 360;
 	
@@ -194,16 +194,20 @@ public class MyResturantAppGUI extends Application {
 		informationPane.setHgap(5);
 		informationPane.setVgap(5);
 		resturantInfoLabels = new Label [4];
+		Label header = new Label("Resturant Information: ");
+		//WHY YOU NO WORK
+		header.setStyle("-fx-font-weight: bold;");
 		//Might want to refactor this a little bit. does it matter if I am using the static variables or the information from 
 		//The created resturant object? I don't plan on changing the resturant in the current appilcation launch.
 		resturantInfoLabels[0] = new Label("Restaurant name: " + resturantName);
 		resturantInfoLabels[1] = new Label("Type of Cuisine served: " + resturant_cuisine);
 		resturantInfoLabels[2] = new Label("Critic rating: " + restaurant.getRating());
 		resturantInfoLabels[3] = new Label("Location/Address: " + restaurant.getAddress());
-		informationPane.add(resturantInfoLabels[0], 0, 0);
-		informationPane.add(resturantInfoLabels[1], 0, 1);
-		informationPane.add(resturantInfoLabels[2], 0, 2);
-		informationPane.add(resturantInfoLabels[3], 0, 3);
+		informationPane.add(header, 0, 0);
+		informationPane.add(resturantInfoLabels[0], 0, 1);
+		informationPane.add(resturantInfoLabels[1], 0, 2);
+		informationPane.add(resturantInfoLabels[2], 0, 3);
+		informationPane.add(resturantInfoLabels[3], 0, 4);
 	    Menu options = new Menu("Options");
 
 	    menuBar = new MenuBar();
